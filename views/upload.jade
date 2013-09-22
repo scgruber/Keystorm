@@ -1,0 +1,20 @@
+!!! 5
+html
+  head
+    title Keystorm Keysigning Party Server
+    link(rel="stylesheet",type="text/css",href="style.css")
+  body
+    #pagewrapper
+      h1 Keystorm
+      h2 Upload your key
+      #uploader
+        form(method="post",action="/addKey")
+          | Paste the ASCII-armored keyfile:
+          br
+          textarea(name="pubkey")#keyfile
+          br
+          | Enter the event secret:
+          br
+          input(type="text",name="secret")#secret
+          br
+          input(type="submit",value="Upload Key")

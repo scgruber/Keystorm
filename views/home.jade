@@ -1,0 +1,26 @@
+!!! 5
+html
+  head
+    title Keystorm Keysigning Party Server
+    link(rel="stylesheet",type="text/css",href="style.css")
+  body
+    #pagewrapper
+      h1 Keystorm
+      h2 Running for #{eventname}
+      #info
+        | There are currently #{numKeys} keys stored in the database
+        |  -- 
+        a(href="/upload") Add your key
+        |  -- 
+        a(href="/") Reload this list
+      each k in keys
+        table.keytable
+          tr
+            td #{k.name}
+            td #{k.email}
+            td #{k.id}
+            td Expires #{k.exp}
+          tr
+            td(colspan="3") #{k.fingerprint}
+            td
+              a(href="/keys/#{k.file}") Download keyfile

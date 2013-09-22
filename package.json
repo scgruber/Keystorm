@@ -1,0 +1,25 @@
+{
+  "name"        : "keystorm",
+  "version"     : "0.0.1",
+  "author"      : "Sam Gruber <grubermensch@gmail.com>",
+  "description" : "A keysigning party tool",
+  "contributors": [
+    {
+        "name"    : "Sam Gruber",
+        "email"   : "grubermensch@gmail.com"
+    }
+  ],
+  "keywords"    : [
+        "pgp"
+  ],
+  "dependencies": {
+        "express" : "3.0.x",
+        "mongoose": "3.5.x",
+        "jade"    : "0.28.x"
+  },
+  "license"     : "GPLv3",
+  "engines"     : {
+        "node"    : "0.8.x",
+        "npm"     : "1.1.x"
+  }
+}

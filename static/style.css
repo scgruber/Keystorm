@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#keyfile {
+  width: 500px;
+  height: 300px;
+}
+
+#secret {
+  width: 500px;
+}
+
+#pagewrapper {
+  margin: auto;
+  padding: 50px;
+  width: 700px;
+  background: #CCC;
+}
+
+#info,#uploader {
+  padding: 5px;
+  width: 690px;
+  background: #EEE;
+  margin: 25px 0;
+}
+
+.keytable {
+  margin-bottom: 50px;
+  padding: 5px;
+  width: 700px;
+  border: 2px solid #44F;
+  border-top-width: 5px;
+  background: #EEE;
+}
