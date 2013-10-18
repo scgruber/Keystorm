@@ -1,26 +1,59 @@
+// cbox declaration
+mixin cbox(title)
+  .cbox
+    .section-tag= title
+    if block
+      block
+
 !!! 5
 html
   head
-    title Keystorm Keysigning Party Server
-    link(rel="stylesheet",type="text/css",href="style.css")
+    title CMU Computer Club - Keystorm Keysigning Party Server
+    link(rel="stylesheet",type="text/css",href="http://www.cmucc.org/html5reset.css")
+    link(rel="stylesheet",type="text/css",href="http://www.cmucc.org/style.css")
+    // link(rel="stylesheet",type="text/css",href="style.css")
   body
     #pagewrapper
-      h1 Keystorm
-      h2 Running for #{eventname}
-      #info
-        | There are currently #{numKeys} keys stored in the database
-        |  -- 
-        a(href="/upload") Add your key
-        |  -- 
-        a(href="/") Reload this list
-      each k in keys
-        table.keytable
-          tr
-            td #{k.name}
-            td #{k.email}
-            td #{k.id}
-            td Expires #{k.exp}
-          tr
-            td(colspan="3") #{k.fingerprint}
-            td
-              a(href="/keys/#{k.file}") Download keyfile
+      #header
+        #logotype
+          img(src="http://www.cmucc.org/logo.png",alt="Carnegie Mellon Computer Club")
+        #menu
+          a(href="/") HOME
+          a(href="/register") REGISTER
+          a(href="/plan") EVENT PLAN
+        .clear
+      .widepad
+      div
+        #leftcol
+          +cbox("KEYSIGNING PARTY")
+
+            p
+              | Please 
+              a(href="/register") register
+              | your key(s) for the event in advance. It will not be possible to 
+              | sign keys that are submitted later than 5:00pm EST.
+            p
+              | Refer to our 
+              a(href="/plan") event plan
+              | for important information about how to participate in the 
+              | keysigning.
+        #rightcol
+          +cbox("RESOURCES")
+            ul
+              li: a(href="http://www.apache.org/dev/openpgp.html#key-gen-generate-key") Generating a key
+              li: a(href="http://www.apache.org/dev/key-transition.html") Transitioning keys
+              li: a(href="http://cryptnet.net/fdp/crypto/keysigning_party/en/keysigning_party.html") About keysigning parties
+      .clear
+      .widepad
+      #footer
+        | Copyright 2004-2013 CMU Computer Club
+        br 
+        | Send comments or issues about this site to 
+        a(href="mailto:webmaster@club.cc.cmu.edu") webmaster@club.cc.cmu.edu
+      script(type="text/javascript").
+        if (document.getElementById('menu').offsetWidth < 350) {
+          if (document.getElementById('menu').offsetWidth < 275)
+            document.getElementById('menu').style.width = '235px';
+        document.getElementById('rightcol').style.width = document.getElementById('menu').offsetWidth - 5 + 'px';
+        }
+        document.getElementById('leftcol').style.width = 775 - document.getElementById('rightcol').offsetWidth + 'px';

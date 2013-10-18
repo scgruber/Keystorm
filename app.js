@@ -25,11 +25,12 @@ Key.count(function (err, ct) {
 });
 
 var api = require('./api.js');
-app.post('/addKey', api.addKey);
-app.get('/listKeys', api.listKeys);
+//app.post('/addKey', api.addKey);
+//app.get('/listKeys', api.listKeys);
 var views = require('./views.js');
 app.get('/', views.home);
-app.get('/upload', views.upload);
+// app.get('/upload', views.upload);
+app.get('/:other', views.fourohfour); // fall-through
 
 var port = 3000;
 app.listen(port);

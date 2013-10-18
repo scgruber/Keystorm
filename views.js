@@ -13,3 +13,7 @@ exports.home = function (req,res) {
 exports.upload = function (req,res) {
   res.render('upload');
 };
+
+exports.fourohfour = function (req,res) {
+    res.redirect('/'); // Simplistic
+}
