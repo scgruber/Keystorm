@@ -29,7 +29,7 @@ var api = require('./api.js');
 //app.get('/listKeys', api.listKeys);
 var views = require('./views.js');
 app.get('/', views.home);
-// app.get('/upload', views.upload);
+app.get('/register', views.register);
 app.get('/:other', views.fourohfour); // fall-through
 
 var port = 3000;

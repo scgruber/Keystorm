@@ -10,8 +10,8 @@ exports.home = function (req,res) {
   });
 };
 
-exports.upload = function (req,res) {
-  res.render('upload');
+exports.register = function (req,res) {
+  res.render('register');
 };
 
 exports.fourohfour = function (req,res) {
