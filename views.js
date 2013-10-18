@@ -14,6 +14,10 @@ exports.register = function (req,res) {
   res.render('register');
 };
 
+exports.plan = function (req,res) {
+  res.render('plan');
+};
+
 exports.fourohfour = function (req,res) {
     res.redirect('/'); // Simplistic
 }

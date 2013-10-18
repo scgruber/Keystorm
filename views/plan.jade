@@ -1,0 +1,122 @@
+// cbox declaration
+mixin cbox(title)
+  .cbox
+    .section-tag= title
+    if block
+      block
+
+!!! 5
+html
+  head
+    title CMU Computer Club - Keystorm Keysigning Party Server
+    link(rel="stylesheet",type="text/css",href="http://www.cmucc.org/html5reset.css")
+    link(rel="stylesheet",type="text/css",href="http://www.cmucc.org/style.css")
+    // link(rel="stylesheet",type="text/css",href="style.css")
+  body
+    #pagewrapper
+      #header
+        #logotype
+          img(src="http://www.cmucc.org/logo.png",alt="Carnegie Mellon Computer Club")
+        #menu
+          a(href="/") HOME
+          | &nbsp; | &nbsp;
+          a(href="/register") REGISTER
+          | &nbsp; | &nbsp;
+          a(href="/plan") EVENT PLAN
+        .clear
+      .widepad
+      div
+        #leftcol
+          +cbox("BEFORE THE EVENT")
+            ol
+              li
+                | Please register your PGP key(s) before the event. We will not be 
+                | able to accommodate any keys which are added to the database 
+                | after 5:00pm.
+              li
+                | If this is your first keysigning party and you aren't sure what 
+                | to do, we will be holding an informal help session starting at 
+                | 4:30pm. We can provide assistance getting yourself set up in 
+                | time to participate when the party properly starts at 5:00.
+              li
+                | All attendees must print out a copy of their key(s) for the 
+                | event. This is very important so that you can verify that the 
+                | key in our database is authentic.
+          +cbox("DURING THE EVENT")
+            ol
+              li
+                | At the beginning of the event, the organizers will distribute 
+                | printed copies of the complete list of keys stored in our 
+                | database.
+              li
+                | Readers at the front of the room will announce the names of 
+                | key owners.
+                ul
+                  li
+                    | When your name is called, please stand up. As the reader 
+                    | recites the fingerprint from the database, listen 
+                    | carefully to be sure that the database fingerprint matches 
+                    | the one you brought to the event. At the end of the 
+                    | reading, verbally acknowledge that the fingerprint is 
+                    | genuine.
+                  li
+                    | When other attendees' fingerprints are being read, verify 
+                    | that the fingerprint matches the symbols on your printout.
+              li
+                | After all fingerprints have been read, you will have the 
+                | opportunity to verify the identity of other attendees whom 
+                | you do not know personally. It is suggested that you check 
+                | multiple forms of government-issued photo ID.
+              li
+                | When you have completed verifying other identities, stick 
+                | around and schmooze with the other attendees.
+          +cbox("AFTER THE EVENT")
+            ol
+              li
+                | Within a few days, sign the keys on the printout which you 
+                | were able to verify. You should only sign a key if you are 
+                em very confident
+                |  that the person who stood up and acknowledged the fingerprint 
+                | is who they claim to be.
+              li
+                | Soon after the event, we will make the entire event public 
+                | keyring available on this website. Download it, import it into 
+                | your keyring, and sign some keys!
+              li
+                | After you sign the keys, you will need to publish them. There 
+                | are two ways you can do this:
+                ul
+                  li
+                    | The preferred method is to extract the key into an 
+                    | ASCII-armored file as you did during
+                    a(href="/register") registration
+                    |  encrypt the file with that key, and email the encrypted 
+                    | file to the address associated with the key. This 
+                    | verifies that the key owner is also the owner of the 
+                    | associated address.
+                  li
+                    | If you are 
+                    em confident
+                    |  that the person you saw owns the key's email address, 
+                    | you can upload the signatures directly to the global key 
+                    | database.
+        #rightcol
+          +cbox("RESOURCES")
+            ul
+              li: a(href="http://www.apache.org/dev/openpgp.html#key-gen-generate-key") Generating a key
+              li: a(href="http://www.apache.org/dev/key-transition.html") Transitioning keys
+              li: a(href="http://cryptnet.net/fdp/crypto/keysigning_party/en/keysigning_party.html") About keysigning parties
+      .clear
+      .widepad
+      #footer
+        | Copyright 2004-2013 CMU Computer Club
+        br 
+        | Send comments or issues about this site to 
+        a(href="mailto:webmaster@club.cc.cmu.edu") webmaster@club.cc.cmu.edu
+      script(type="text/javascript"). 
+        if (document.getElementById('menu').offsetWidth < 350) {
+          if (document.getElementById('menu').offsetWidth < 240)
+            document.getElementById('menu').style.width = '200px';
+        document.getElementById('rightcol').style.width = document.getElementById('menu').offsetWidth - 5 + 'px';
+        }
+        document.getElementById('leftcol').style.width = 775 - document.getElementById('rightcol').offsetWidth + 'px';
