@@ -33,7 +33,7 @@ html
                   td: Key
                   td
                     each l in k.key.replace("\r","").split("\n")
-                      pre l
+                      pre= l
                       br
         #rightcol
           +cbox("RESOURCES")
