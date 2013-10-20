@@ -7,7 +7,7 @@ var keySchema = new Schema({
   email: String,
   fingerprint: String,
   exp: String,
-  file: String
+  key: String
 });
 
 module.exports = mongoose.model('Key', keySchema);
