@@ -25,7 +25,7 @@ exports.addKey = function(req, res) {
             key: req.body.pubkey
           }).save();
           console.log('Recorded public key '+ keyValues[1] + ' for ' + keyValues[2]);
-          res.redirect('/dump#' + keyValues[1]);
+          res.redirect('/keys#' + keyValues[1]);
         }
       });
     });

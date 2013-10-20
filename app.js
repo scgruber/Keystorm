@@ -28,6 +28,7 @@ var views = require('./views.js');
 app.get('/', views.home);
 app.get('/register', views.register);
 app.get('/plan', views.plan);
+app.get('/keys', views.keys);
 app.get('/:other', views.fourohfour); // fall-through
 
 var port = 3000;

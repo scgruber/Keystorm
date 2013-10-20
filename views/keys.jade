@@ -1,0 +1,38 @@
+include includes/mixins
+
+!!! 5
+html
+  head
+    include includes/head
+  body
+    #pagewrapper
+      include includes/top
+      div
+        #leftcol
+          +cbox("SUBMITTED KEYS")
+            p
+              |= count
+              | keys have been submitted to this party.
+          each k in keys
+            a(name=k.id)
+            +cbox(k.id)
+              table
+                tr
+                  td: Name
+                  td= k.name
+                tr
+                  td: Email
+                  td= k.email
+                tr
+                  td: Fingerprint
+                  td= k.fingerprint
+                tr
+                  td: Expiration
+                  td= k.exp
+                tr
+                  td: Key
+                  td= k.key
+        #rightcol
+          +cbox("RESOURCES")
+            include includes/resources
+      include includes/bottom

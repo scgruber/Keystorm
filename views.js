@@ -18,6 +18,15 @@ exports.plan = function (req,res) {
   res.render('plan');
 };
 
+exports.keys = function (req,res) {
+  Key.find(function(err, k) {
+    res.render('keys'{
+      count: k.length,
+      keys: k
+    });
+  });
+}
+
 exports.fourohfour = function (req,res) {
     res.redirect('/'); // Simplistic
 }
