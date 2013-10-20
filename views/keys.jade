@@ -31,7 +31,10 @@ html
                   td= k.exp
                 tr
                   td: Key
-                  td= k.key.replace("\n","<br/>")
+                  td
+                    each l in k.key.replace("\r","").split("\n")
+                      pre l
+                      br
         #rightcol
           +cbox("RESOURCES")
             include includes/resources
