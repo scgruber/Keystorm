@@ -20,7 +20,7 @@ exports.plan = function (req,res) {
 
 exports.keys = function (req,res) {
   Key.find(function(err, k) {
-    res.render('keys'{
+    res.render('keys', {
       count: k.length,
       keys: k
     });
