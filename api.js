@@ -16,6 +16,9 @@ exports.addKey = function(req, res) {
         } else {
           var rxp = /pub\s+(\w{5}\/\w{8})\s\d{4}-\d{2}-\d{2}\s(.+)\s<(.+)>\s+Key\sfingerprint\s=\s(\w{4}\s\w{4}\s\w{4}\s\w{4}\s\w{4}\s\s\w{4}\s\w{4}\s\w{4}\s\w{4}\s\w{4})\nsub\s+\w{5}\/\w{8}\s\d{4}-\d{2}-\d{2}\s\[expires:\s(\d{4}-\d{2}-\d{2})\]/;
           var keyValues = stdout.match(rxp);
+          if (keyValues == null) {
+            res.send('An error occurred when processing your key.');
+          }
           console.log(keyValues); // For testing
           new Key({
             id: keyValues[1],
