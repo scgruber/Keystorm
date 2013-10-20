@@ -6,7 +6,7 @@ var keySchema = new Schema({
   name: {type: String, required: true},
   email: {type: String, required: true},
   fingerprint: {type: String, required: true},
-  exp: {type: String, required: true},
+  exp: {type: String, required: false},
   key: {type: String, required: true}
 });
 
