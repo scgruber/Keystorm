@@ -44,8 +44,6 @@ exports.keyring = function(req,res) {
   Key.find(function(err,keys) {
     var ring = "";
     for (k in keys) {
-      console.log("Ring is:")
-      console.log(ring);
       ring += keys[k].key;
       ring += "\r\n\r\n";
     }
