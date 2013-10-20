@@ -11,8 +11,8 @@ html
         #leftcol
           +cbox("SUBMITTED KEYS")
             p
-              |= count
-              | keys have been submitted to this party.
+              span= count
+              |  keys have been submitted to this party.
           each k in keys
             a(name=k.id)
             +cbox(k.id)
@@ -31,7 +31,7 @@ html
                   td= k.exp
                 tr
                   td: Key
-                  td= k.key
+                  td= k.key.replace("\n","<br/>")
         #rightcol
           +cbox("RESOURCES")
             include includes/resources
