@@ -18,11 +18,8 @@ app.configure(function() {
 });
 
 // Counter for files
-global.fileCounter = -1;
-Key.count(function (err, ct) {
-  console.log('Setting global fileCounter to ' + ct);
-  global.keyCounter = ct;
-});
+global.fileCounter = 0;
+console.log('Setting global fileCounter to ' + global.fileCounter);
 
 var api = require('./api.js');
 app.post('/addKey', api.addKey);
