@@ -18,15 +18,15 @@ app.configure(function() {
 });
 
 // Counter for files
-global.keyCounter = -1;
+global.fileCounter = -1;
 Key.count(function (err, ct) {
-  console.log('Setting global keyCounter to ' + ct);
+  console.log('Setting global fileCounter to ' + ct);
   global.keyCounter = ct;
 });
 
 var api = require('./api.js');
-//app.post('/addKey', api.addKey);
-//app.get('/listKeys', api.listKeys);
+app.post('/addKey', api.addKey);
+app.get('/listKeys', api.listKeys);
 var views = require('./views.js');
 app.get('/', views.home);
 app.get('/register', views.register);

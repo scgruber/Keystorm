@@ -3,12 +3,12 @@ var Key = require('./keymodel.js')
   , fs = require('fs');
 
 exports.addKey = function(req, res) {
-  if (req.body.secret == "cmuccks2013") {
-    var thisKeyCounter = global.keyCounter++; // Local copy and increment
-    var filename = "static/keys/" + thisKeyCounter + ".asc";
+  if (req.body.human == "yes") {
+    var thisFileCounter = global.fileCounter++; // Local copy and increment
+    var filename = "keys/" + thisFileCounter + ".asc";
     fs.writeFile(filename, req.body.pubkey, function (err) {
       if (err) throw err;
-      var parsechild = exec('gpg --dry-run --with-fingerprint static/keys/' + thisKeyCounter + '.asc', function (error, stdout, stderr) {
+      var parsechild = exec('gpg --dry-run --with-fingerprint keys/' + thisFileCounter + '.asc', function (error, stdout, stderr) {
         console.log('gpg error: ' + stderr);
         if (error !== null) {
           console.log('exec error: ' + error);
@@ -22,15 +22,15 @@ exports.addKey = function(req, res) {
             email: keyValues[3],
             fingerprint: keyValues[4],
             exp: keyValues[5],
-            file: thisKeyCounter + '.asc'
+            key: req.body.pubkey
           }).save();
-          console.log('Saved public key '+ keyValues[1] + ' for ' + keyValues[2]);
-          res.send('Upload successful');
+          console.log('Recorded public key '+ keyValues[1] + ' for ' + keyValues[2]);
+          res.redirect('/dump#' + keyValues[1]);
         }
       });
     });
   } else {
-    res.send('Bad secret');
+    res.send('Filthy robots!');
   }
 };
 
