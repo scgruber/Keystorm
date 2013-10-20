@@ -1,0 +1,16 @@
+// bottom
+
+.clear
+.widepad
+#footer
+  | Copyright 2004-2013 CMU Computer Club
+  br 
+  | Send comments or issues about this site to 
+  a(href="mailto:webmaster@club.cc.cmu.edu") webmaster@club.cc.cmu.edu
+script(type="text/javascript"). 
+  if (document.getElementById('menu').offsetWidth < 350) {
+    if (document.getElementById('menu').offsetWidth < 240)
+      document.getElementById('menu').style.width = '200px';
+    document.getElementById('rightcol').style.width = document.getElementById('menu').offsetWidth - 5 + 'px';
+  }
+  document.getElementById('leftcol').style.width = 775 - document.getElementById('rightcol').offsetWidth + 'px';
