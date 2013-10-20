@@ -43,7 +43,7 @@ exports.listKeys = function(req,res) {
 exports.keyRing = function(req,res) {
   Key.find(function(err,keys) {
     var ring = "";
-    for k in keys {
+    for (k in keys) {
       ring += k.key;
       ring += "\r\n\r\n";
     }
