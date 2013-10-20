@@ -47,6 +47,7 @@ exports.keyring = function(req,res) {
       ring += keys[k].key;
       ring += "\r\n\r\n";
     }
+    res.type('text/plain');
     res.send(ring);
   });
 };
