@@ -40,7 +40,7 @@ exports.listKeys = function(req,res) {
   });
 };
 
-exports.keyRing = function(req,res) {
+exports.keyring = function(req,res) {
   Key.find(function(err,keys) {
     var ring = "";
     for (k in keys) {
