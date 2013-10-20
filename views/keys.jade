@@ -18,23 +18,20 @@ html
             +cbox(k.id)
               table
                 tr
-                  td: Name
+                  td Name
                   td= k.name
                 tr
-                  td: Email
+                  td Email
                   td= k.email
                 tr
-                  td: Fingerprint
+                  td Fingerprint
                   td= k.fingerprint
                 tr
-                  td: Expiration
+                  td Expiration
                   td= k.exp
                 tr
-                  td: Key
-                  td
-                    each l in k.key.replace("\r","").split("\n")
-                      pre= l
-                      br
+                  td Key
+                  td: pre= k.key
         #rightcol
           +cbox("RESOURCES")
             include includes/resources
