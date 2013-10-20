@@ -16,23 +16,24 @@ exports.addKey = function(req, res) {
         } else {
           var rxp = /pub\s+(\w{5}\/\w{8})\s\d{4}-\d{2}-\d{2}\s(.+)\s<(.+)>\s+Key\sfingerprint\s=\s(\w{4}\s\w{4}\s\w{4}\s\w{4}\s\w{4}\s\s\w{4}\s\w{4}\s\w{4}\s\w{4}\s\w{4})\nsub\s+\w{5}\/\w{8}\s\d{4}-\d{2}-\d{2}\s\[expires:\s(\d{4}-\d{2}-\d{2})\]/;
           var keyValues = stdout.match(rxp);
-          if (keyValues == null) {
+          if (keyValues) {
+            console.log(keyValues); // For testing
+            new Key({
+              id: keyValues[1],
+              name: keyValues[2],
+              email: keyValues[3],
+              fingerprint: keyValues[4],
+              exp: keyValues[5],
+              key: req.body.pubkey
+            }).save(function(err,key,affected) {
+              if (err)
+                res.send('An error occurred when saving your key.');
+            });
+            console.log('Recorded public key '+ keyValues[1] + ' for ' + keyValues[2]);
+            res.redirect('/keys#' + keyValues[1]);
+          } else {
             res.send('An error occurred when processing your key.');
           }
-          console.log(keyValues); // For testing
-          new Key({
-            id: keyValues[1],
-            name: keyValues[2],
-            email: keyValues[3],
-            fingerprint: keyValues[4],
-            exp: keyValues[5],
-            key: req.body.pubkey
-          }).save(function(err,key,affected) {
-            if (err)
-              res.send('An error occurred when saving your key.');
-          });
-          console.log('Recorded public key '+ keyValues[1] + ' for ' + keyValues[2]);
-          res.redirect('/keys#' + keyValues[1]);
         }
       });
     });
