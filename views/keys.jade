@@ -12,7 +12,9 @@ html
           +cbox("SUBMITTED KEYS")
             p
               span= count
-              |  keys have been submitted to this party.
+              |  keys have been submitted to this party. 
+              a(href="/keyring") Download the keyring
+              | .
           each k in keys
             a(name=k.id)
             +cbox(k.id)

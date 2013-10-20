@@ -39,3 +39,14 @@ exports.listKeys = function(req,res) {
     res.send(keys);
   });
 };
+
+exports.keyRing = function(req,res) {
+  Key.find(function(err,keys) {
+    var ring = "";
+    for k in keys {
+      ring += k.key;
+      ring += "\r\n\r\n";
+    }
+    res.send(ring);
+  });
+};
