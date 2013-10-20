@@ -24,7 +24,7 @@ console.log('Setting global fileCounter to ' + global.fileCounter);
 var api = require('./api.js');
 app.post('/addKey', api.addKey);
 app.get('/listKeys', api.listKeys);
-app.get('/keyring', api.keyring);
+app.get('/keyring.asc', api.keyring);
 var views = require('./views.js');
 app.get('/', views.home);
 app.get('/register', views.register);
